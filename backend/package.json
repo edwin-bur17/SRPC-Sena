@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Sistema de recomendacion personal de cursos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin https://github.com/edwin-bur17/SRPC-Sena.git"
+  },
+  "keywords": [
+    "MERN",
+    "Node"
+  ],
+  "author": "Edwin Burbano Luna",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
