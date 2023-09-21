@@ -35,11 +35,20 @@ const usuarioSchema = mongoose.Schema({
     timestamps: true,
 }
 );
-
+// Hashear contraseña
 usuarioSchema.pre('save', async function(next){
+    // Prevenir que se hashee nuevamente la contraseña
+    if (!this.isModified("password")) {
+        next() // Pase al siguiente milware
+    }
     const salt = await bcrypt.genSalt(10)
     this.password = await bcrypt.hash(this.password, salt)
 })
+
+// Comprobar las contraseñas
+usuarioSchema.methods.comprobarPassword = async function(passwordFormulario){
+    return await bcrypt.compare(passwordFormulario, this.password) 
+}
 
 const Usuario = mongoose.model("Usuario", usuarioSchema)
 export default Usuario; 
